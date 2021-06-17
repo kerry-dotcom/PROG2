@@ -1,10 +1,110 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+{% extends "base.html" %}
+
+{% block content %}
+<h2 xmlns="http://www.w3.org/1999/html"> Welcome to the Calorie Calculator! </h2>
+<p> Hi I'm {{ author }} and I'm here to help you with your calories.
+    First let me give you a basic over view over calories, so you understand what I'm recommending. </br>
+    As soon as you understand what I'm recommending, you can click <a href="nutrition">here</a> to go to the calculator.
+</p>
+<! -- curly brackets is the Jinja syntax. We've chosen it on main.py and are using it here -->
+
+<h3>What are calories?</h3>
+<p>
+    Calories are a numerical unit of energy that is given to the body through the intake of food. Calories are made
+    up of three macros.
+</p>
+
+<h3>What are macros?</h3>
+<p>
+    Macros stand for macronutrients and are carbohydrates, fats and proteins. The three main components that our
+    food we consume consists of.
+</p>
+<table border="1">
+            <tr>
+                <th>
+                    Carbohydrates
+                </th>
+                <td>
+                    1g of carbohydrates is equal to 4 kcal. Carbs are the main energy deliverer in our body. With this
+                    being said we have to make sure that we consume enough carbs to provide energy for our daily
+                    activities as well as our training.
+                    The amount of carbs per person can massively vary. If you stick to the average numbers of fat and
+                    protein stated below, you can use the rest of your daily calorie intake as carbs.
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Fats
+                </th>
+                <td>
+                    1g of fat is equal to 9 kcal. Fats are essential for hormones and specially important for females.
+                    Fat helps with providing structure and strenght for our cells as well as transportation of vitamins
+                    throughout our body.
+                    As an average I would set fats no lower than 0.8kg of kg body weight.
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Protein
+                </th>
+                <td>
+                    1g of protein is equal to 4 kcal. Protein helps grow and maintain all body tissue. That's not
+                    just muscle but also skin, organs, tendons and much more. Protein provides high satiety. That
+                    helps with feeling fuller for longer.
+                    As an average I would set protein to about 2g of kg body weight.
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Alcohol
+                </th>
+                <td>
+                    1g of alcohol is equal to 4 kcal. Alcohol is often referred to as the fourth macronutrient. Where as
+                    fats, proteins and carbs can be stored in the body and used for energy, alcohol can't be stored and
+                    the body simply wants to get rid of it as fast as possible. It brings zero nutritional value. This
+                    is why we also call alcohol empty calories.
+
+                </td>
+            </tr>
+        </table>
+
+<h3>How does an example calculation for macros look like?</h3>
+<p>
+    Lets take a female, that is 167cm tall and weights 60kg. She used the calorie calculator and got given 2169 Calories.
+</p>
+<ul>
+    <li><b>Protein:</b> 2g x 60kg = 120g of protein per day. </br>
+  120g x 4 kcal = 480 kcals worth of protein</li>
+  <li><b>Fats:</b> 0.8g x 60kg = 48g of protein per day. </br>
+  48g x 9 kcal = 432 kcals worth of protein</li>
+  <li><b>Carbs:</b> 2169 (daily kcal) - 480 (protein) - 432 (fats) = 1257 kcals left for carbs </br>
+  1257 / 4 kcal = 314g of carbs per day.</li>
+</ul>
+
+<h3>How do I know how many calories I'm consuming?</h3>
+<p>
+    You track your calories. That means you keep a record of everything you eat in a day.
+    I highly recommend using MyFitnessPal. It's an easy to use app where you can track all your calories and macros.
+    Please be aware you are not tracking your exercise through MyFitnessPal. It will add your "burned" calories
+    to your daily intake. Unfortnuately apps as well as sports watches highly overstimate the calories burned and
+    you will probably end up overeating.
+</p>
+
+<h3>How do the goals refer to the calories?</h3>
+<p>
+    If your goal is to maintain, your calories will take the following into account:
+<ul>
+    <li><b>Basal Metabolic Rate (BMR):</b> The amount of calories your body needs to function. This varies depending on
+  age, height, weight and gender.</li>
+    <li><b>Non-Exercise Activity Thermogeneis (NEAT):</b> The amount of calories your body needs for daily activities.</li>
+    <li><b>Exercise Activity Thermogenesis (EAT):</b> The amount of calories your body needs for training.</li>
+</ul>
+<p>
+    If you want to lose weight, the calculator will but you in a deficit of 25%.
+    If you want to build, the calculator will but you in a surplus of 20%.
+</p>
+
 </head>
 <body>
 
-</body>
-</html>
+{% endblock %}

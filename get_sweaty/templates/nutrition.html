@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Calorie Calculator</h2>
+<p>Please fill in the values below. You will then receive an estimate for your daily calories.</p>
+<!-- Hier definieren wir das POST aus dem py file -->
+<form action="" method="post">
+    <!-- CSRF token starten. Braucht es für wtfforms. Ansonsten kommt Error -->
+    {{ form.csrf_token }}
+    <!-- CSRF token beenden-->
+    <!-- csrf token ist eine art validation und sicherheit die für WTForms notwendig ist -->
+    <p style="margin-bottom: 40px;">
+        {{form.email.label}} <br>
+        <!-- druckt das email label im HTML, welches in Calorie Form in forms.py Zeile 10 definiert wurde -->
+        {{form.email()}} <! -- Das ist das eigentliche Feld -->
+        <!-- für die eigentliche Box -->
+    </p>
+    <p>
+        {{form.weight.label}} <br>
+        {{form.weight(size=3)}} <!-- size 3 = 3 zeichen können eingegeben werden -->
+    </p>
+    <p>
+        {{form.height.label}} <br>
+        {{form.height(size=3)}}
+    </p>
+    <p>
+        {{form.age.label}} <br>
+        {{form.age(size=3)}}
+    </p>
+    <p>
+        {{form.gender.label}} <br>
+        {{form.gender()}}
+    </p>
+    <p>
+        {{form.activity.label}} <br>
+        {{form.activity()}}
+    </p>
+    <p>
+        {{form.goal.label}} <br>
+        {{form.goal()}}
+    </p>
+    <p>
+        {{form.submit()}}
+    </p>
+</form>
+
+{% endblock %}

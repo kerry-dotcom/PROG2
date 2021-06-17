@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Get Fit - the Calorie Calculator</title>
+    <link rel="stylesheet" href="/static/main.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+<head/>
+
+<body>
+    <h1>Get Fit - the Calorie Calculator</h1>
+    <div class="topnav">
+        <a href="/home">Home</a>
+        <a href="/nutrition">Nutrition</a>
+    <nav>
+        <ul>
+          <li><a href="/home">Home</a></li>
+          <li><a href="/nutrition">Nutrition</a></li>
+        </ul>
+      </nav>
+</div>
+</body>
+</html>
+
+{% block content %}{% endblock%}
+<! -- here the other content (that is different from page to page) will appear  -->
+
+
+
+<! -- this file will be used in all webpages: contact, exercise etc.  -->

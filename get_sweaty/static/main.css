@@ -1,0 +1,90 @@
+nav ul {
+  list-style: none;
+  text-align: center;
+  margin: 0 0 0 0px;
+  border-bottom: 1px SOLID #7334;
+  font-size: 1.2rem;
+}
+nav ul li {
+  display: inline-block;
+  padding: 1rem 1.5rem;
+}
+nav ul li:hover {
+  border: 1px solid #888888;
+  transition: 1.4s;
+}
+/*hover = wie sieht es aus wenn ich mit der Maus darüber fahre*/
+nav ul li a {
+  text-decoration: none;
+  color: #444;
+  padding: 1rem 1.5rem;
+
+
+/* MAIN SETTINGS CSS*/
+
+body {
+  background-color: #ffffff;
+}
+
+h1 {
+    color: black;
+    font-family: Helvetica, Arial, sans-serif;
+}
+/* mehrere Schriftarten. Wenn eine nicht verfügbar ist, nimmt es die nächste*/
+
+h2 {
+    color: #91818a;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+h3 {
+  color: #b2a3b5;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+p {
+    color: black;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+ul {
+    color: black;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+li {
+    color: black;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+/* END MAIN SETTINGS FOR TEXT AND HEADERS CSS*/
+
+
+/* START: css für Tabelle */
+table {
+    width: 30%;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+/* collapse: th und td haben beide Rahmen. Mit collaps wird es zu einem zusammengefügt */
+
+th {
+    height: 70px;
+    text-align: left;
+    vertical-align: center;
+    padding: 15px;
+    background-color: #b2a3b5;
+    color: #ffffff;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+td {
+    height: 40px;
+    text-align: left;
+    vertical-align: left;
+    padding: 15px;
+    color: black;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+/* ENDE: css für Tabelle */

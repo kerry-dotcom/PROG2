@@ -11,7 +11,7 @@ def hello():
 @app.route("/hello/<name>")
 def hello2(name):
     return render_template("hello.html", name=name)
-
+6
 
 
 @app.route("/test")

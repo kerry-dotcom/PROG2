@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h2>Nutrition</h2>
+
+    <!-- Falls Error eintrifft, Fehler Meldung anzeigen -->
+    {% if error %}
+        <p>There was an error processing the input values. Please check the values entered and try again.</p>
+    <!-- Falls kein Fehler eintrifft, das Resultat der Berechnung anzeigen -->
+    {% else %}
+        <p>This is your daily calorie suggestion to {{ goal }} weight.</p>
+        <table border="1">
+            <tr>
+                <th>
+                    Calorie Calculator Result
+                </th>
+                <td>
+                    {{result}} Calories
+                </td>
+            </tr>
+        </table>
+        <br/>
+        <br/>
+        <!-- Den letzten Wert in "chart_data" darstellen. Das rufen wir mit -1 auf -->
+        <p><strong>BMI:</strong> {{ chart_data["values"][-1] }}</p>
+        <p>According to your BMI you are {{ status }}</p>
+        <!-- Falls es 2 oder mehr Werte gibt, die Diagramm darstellen -->
+        {% if chart_data["values"]|length > 1 %}
+            <canvas id="myChart" width="400" height="400" style="max-width: 80%; max-height: 40vh; min-width: 300px; min-height: 200px;"></canvas>
+            <!-- Die ChartJS library script hinzufügen -->
+            <script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.0/dist/chart.min.js"></script>
+            <!-- Das Diagramm initialisieren -->
+            <script>
+                let ctx = document.getElementById('myChart').getContext('2d');
+                let myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: {{ chart_data["labels"]|safe }}, //Labels auf der X Achse
+                        datasets: [{
+                            label: 'BMI',
+                            data: {{ chart_data["values"]|safe }}, //Die eigentlichen Daten
+                            fill: false,
+                            borderColor: "rgb(57, 51, 54)",
+                            tension: 0
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            x: {
+                                grid: {
+                                    display: false
+                                }
+                            },
+                            y: {
+                                title: {
+                                    display: true,
+                                    text: 'BMI'
+                                },
+                                grid: {
+                                    display: true
+                                },
+                                suggestedMin: 18,
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        }
+                    }
+                });
+            </script>
+        {% endif %}
+    {% endif %}
+
+{% endblock %}
+
+<!-- Zuerst erstellen wir ein <canvas> HTML element und halten fest, wo das Diagramm angezeigt wird
+dann fügen für die Chart JS <script> library hinzu und definieren alle Konfigurationen in einem zweiten Script 32 & 34
+ctx speichert die canvas elemente, damit die library dann darauf zeichnen kann
+das diagramm wird dann initialisiert und die { objects } werden angegeben, welche die Konfigutationen für das Diagramm enthalten
+das enthält farben, lables, values und so
+Zeile 42: ist eine variable welche von Flask zu HTML übergeben wird. Sage sagt Flask, dass die "value" welche an HTML übergeben
+wird eine safe "value" ist und nicht verschlüsselt werden muss -->
